@@ -34,7 +34,7 @@ class VerificationHandler
 				/* get the network provider or carrier */
 				$carrierMapper = PhoneNumberToCarrierMapper::getInstance();
 				$carrier = $carrierMapper->getNameForNumber($number, "en");
-                $carrier = $carrier === "9mobile" ? "Etisalat" : $carrier;
+                $carrier = $carrier === "9mobile" ? "ETISALAT" : $carrier;
 
 				/* Get country calling code */
 				$countryCallingCode = $NumberUtil->getCountryCodeForRegion($params["country_code"]);
