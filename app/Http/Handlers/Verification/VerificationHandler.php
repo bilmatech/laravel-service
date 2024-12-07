@@ -34,6 +34,7 @@ class VerificationHandler
 				/* get the network provider or carrier */
 				$carrierMapper = PhoneNumberToCarrierMapper::getInstance();
 				$carrier = $carrierMapper->getNameForNumber($number, "en");
+                $carrier = $carrier === "9mobile" ? "etisalat" : $carrier;
 
 				/* Get country calling code */
 				$countryCallingCode = $NumberUtil->getCountryCodeForRegion($params["country_code"]);
@@ -58,7 +59,7 @@ class VerificationHandler
 				/* format the payload response */
 				$validationPayload["number"] = $params["phone_number"];
 				$validationPayload["carrier_name"] = $carrier;
-				$validationPayload["slugs"] = ["airtime_slug" => strtolower($carrier), "data_slug" => strtolower($carrier) . "-data"];
+				$validationPayload["slugs"] = ["airtime_slug" => strtolower($carrier), "data_slug" => strtolower($carrier ) . "-data"];
 
 				$validationPayload["country"] = [
 					"name" => $countryName,
