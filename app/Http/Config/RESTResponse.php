@@ -48,7 +48,7 @@ trait RESTResponse
 	 * @param int $statusCode The client status code to notify the browser.
 	 *
 	 */
-	private function terminateRequest(string $error = null, $response = null, int $statusCode = 400)
+	private function terminateRequest(?string $error = null, $response = null, int $statusCode = 400)
 	{
 		if (!empty($error)) {
 			$this->ERROR = $error;
