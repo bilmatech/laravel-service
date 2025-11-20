@@ -16,10 +16,6 @@ RUN apk add --no-cache bash curl git icu-dev oniguruma-dev libzip-dev zip sqlite
 
 COPY --from=vendor /usr/bin/composer /usr/local/bin/composer
 
-WORKDIR /var/www/html
-
-COPY --from=vendor /var/www/html /var/www/html
-
 RUN mkdir -p database storage bootstrap/cache \
     && touch database/database.sqlite \
     && cp -n .env.example .env || true \
